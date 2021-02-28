@@ -2,6 +2,7 @@ import $, { map } from 'jquery';
 import axios from 'axios';
 import { minLenght } from './minLength';
 import { required } from './required';
+import { passwordChecker } from './passwordChecker';
 
 export const registration = () => {
     const fragment = $(document.createDocumentFragment());
@@ -19,11 +20,11 @@ export const registration = () => {
             <p class="text-danger" id="password-required">Hasło jest wymagane!</p>
             <p class="text-danger" id="password-min-length">Hasło jest zbyt krótkie!</p>
         </div>
-            <!--<p class="password-strength">
-                <span class="weak"></span>
-                <span class="medium"></span>
-                <span class="strong"></span>
-            </p>-->
+            <p class="password-strength">
+                <div class="weak"></div>
+                <div class="medium"></div>
+                <div class="strong"></div>
+            </p>
             <button type="button">Zarejestruj się</button>
 
             
@@ -44,6 +45,27 @@ export const registration = () => {
     errorMessages.login.required.hide();
     errorMessages.password.required.hide();
     errorMessages.password.minLength.hide();
+    form.find('.weak').hide();
+    form.find('.medium').hide();
+    form.find('.strong').hide();
+
+    form.find('#password').on('keyup', () => {
+        let passwordStrength = passwordChecker($('#password').val());
+    
+        if (passwordStrength===1) {
+            $('.weak').show();
+            $('.medium').hide();
+            $('.strong').hide();
+        }else if (passwordStrength===2) {
+            $('.weak').show();
+            $('.medium').show();
+            $('.strong').hide();
+        }else if (passwordStrength===3) {
+            $('.weak').show();
+            $('.medium').show();
+            $('.strong').show();
+        }
+    })
 
     form.find('button').on('click', event => {
         event.preventDefault();
@@ -54,7 +76,6 @@ export const registration = () => {
         const loginIsRequired = required(login);
         const passwordIsRequired = required(password);
         const passwordMinLength = min8Chars(password);
-        console.log(loginIsRequired, passwordIsRequired, passwordMinLength);
 
         loginIsRequired ? errorMessages.login.required.show() : errorMessages.login.required.hide();
         passwordIsRequired ? errorMessages.password.required.show() : errorMessages.password.required.hide();
@@ -66,8 +87,6 @@ export const registration = () => {
                     login: login, password: password
                 })
                 .then(response => console.log(response));
-
-            console.log(login, password);
         }
     })
 

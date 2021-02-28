@@ -1,0 +1,19 @@
+.weak,
+.medium,
+.strong {
+    display: inline-block;
+    width: 40px;
+    height: 10px;
+}
+
+.weak {
+    background-color: red;
+}
+
+.medium {
+    background-color: yellow;
+}
+
+.strong {
+    background-color: green;
+}
