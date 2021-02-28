@@ -4,6 +4,7 @@
     {
       "id": 1,
       "name": "Pokój unarny",
+      "description": "Niewielki pokój idealny dla jednego programisty",
       "beds": 1,
       "guests": 1,
       "price": 170
@@ -11,6 +12,7 @@
     {
       "id": 2,
       "name": "Pokój binarny",
+      "description": "Standardowy pokój idealny dla zespołu dwóch programistów",
       "beds": 1,
       "guests": 2,
       "price": 240
@@ -18,6 +20,7 @@
     {
       "id": 3,
       "name": "Pokój trójkowy",
+      "description": "Trochę większy pokój idealny dla zespołu trzech programistów",
       "beds": 2,
       "guests": 3,
       "price": 290
@@ -25,6 +28,7 @@
     {
       "id": 4,
       "name": "Pokój czwórkowy",
+      "description": "Całkiem duży pokój idealny dla zespołu nawet czterech programistów",
       "beds": 2,
       "guests": 4,
       "price": 340
@@ -82,4 +86,3 @@
     }
   ]
 }
- 

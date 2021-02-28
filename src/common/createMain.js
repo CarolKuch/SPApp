@@ -1,5 +1,6 @@
-import $ from 'jquery';
+import $, { map } from 'jquery';
 import * as views from '../views';
+import {roomDetails} from '../views/rooms/roomDetails'
 
 export const createMain = () => {
     const main = $(`
@@ -7,15 +8,19 @@ export const createMain = () => {
         </main>
     `);
 
-    console.log(views);
-    console.log(views.home);
-    console.log(views.rooms);
-    document.addEventListener('navigation', event=>{
+    document.addEventListener('navigation', event => {
         const viewName = event.detail.name;
 
-        const viewFn = views[viewName];
+        switch (viewName) {
+            case 'room-details':
+                main.empty().append(roomDetails(event.detail.roomID));
+                break;
+            default:
+                const viewFn = views[viewName];
+                main.empty().append(viewFn());
 
-        main.empty().append(viewFn());
+        }
+
     });
     return main;
 }
