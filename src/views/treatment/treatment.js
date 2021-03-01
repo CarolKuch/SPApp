@@ -1,31 +1,31 @@
 import $ from 'jquery';
 import axios from 'axios';
 
-export const rooms = () => {
+export const treatments = () => {
     const fragment = $(document.createDocumentFragment());
-    const h2 = $('<h2>Pokoje</h2>');
-    const roomsList = $('<section>Loading...</section>')
-    fragment.append(h2)
-    fragment.append(roomsList)
+    const h2 = $('<h2>Zabiegi</h2>');
+    const treatmentsList = $('<section>Loading...</section>');
+    fragment.append(h2);
+    fragment.append(treatmentsList)
     axios
-        .get('http://localhost:3000/rooms')
+        .get('http://localhost:3000/treatments')
         .then(response=>response.data)
-        .then(rooms=>
-            rooms.map(room => {
+        .then(treatments=>
+            treatments.map(treatment => {
                 const article = $(`
                 <article style="background-color: #fbbc04">
-                    <p>Ilość łóżek: ${room.beds}</p>
-                    <p>Liczba gości: ${room.guests}</p>
-                    <p>Cena pokoju: ${room.price.toFixed(2)} zł</p>
+                    <p>Obszar: ${treatment.area}</p>
+                    <p>Czas trwania: ${treatment.time}</p>
+                    <p>Cena: ${treatment.price.toFixed(2)} zł</p>
                 </article>
             `);
 
-            const h4 = $(`<h4>${room.name}</h4>`);
+            const h4 = $(`<h4>${treatment.name}</h4>`);
             h4.on('click', () => {
                 const customEvent = new CustomEvent('navigation', {
                     detail: {
-                        name: 'room-details',
-                        roomID: room.id
+                        name: 'treatment-details',
+                        treatmentID: treatment.id
                     }
                 });
                 document.dispatchEvent(customEvent);
@@ -38,7 +38,7 @@ export const rooms = () => {
             }
             ))
         .then(articles => {
-            roomsList.empty().append(articles);
+            treatmentsList.empty().append(articles);
         });    
 
     return fragment;

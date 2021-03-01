@@ -1,14 +1,15 @@
 import $, { map } from 'jquery';
 import axios from 'axios';
-import { minLenght } from './minLength';
-import { required } from './required';
-import { passwordChecker } from './passwordChecker';
+import { minLenght } from '../registration/minLength';
+import { required } from '../registration/required';
+import { goHome } from '../home/home';
 
-export const registration = () => {
+export const login = () => {
     const fragment = $(document.createDocumentFragment());
-    const h2 = $(`<h2>Rejestracja</h2>`);
+    const h2 = $(`<h2>Logowanie</h2>`);
+
     const form = $(`
-        <form name="signUp" novalidate autocomplete="off">
+        <form name="logIn" novalidate autocomplete="off">
         <div class="form-group">    
             <label>Login: </label>
             <input id="login" type="text" />
@@ -18,18 +19,14 @@ export const registration = () => {
             <label>Hasło: </label>
             <input id="password" type="password"/>
             <p class="text-danger" id="password-required">Hasło jest wymagane!</p>
-            <p class="text-danger" id="password-min-length">Hasło jest zbyt krótkie!</p>
+            <p class="text-danger" id="password-min-length">Hasło jest niepoprawne!</p>
         </div>
-            <p class="password-strength">
-                <div class="weak"></div>
-                <div class="medium"></div>
-                <div class="strong"></div>
-            </p>
-            <button type="button">Zarejestruj się</button>
+            <button type="button" id="login-button">Zaloguj się</button>
 
             
         </form>
     `);
+
     const errorMessages = {
         login: {
             required: form.find('#login-required')
@@ -45,29 +42,12 @@ export const registration = () => {
     errorMessages.login.required.hide();
     errorMessages.password.required.hide();
     errorMessages.password.minLength.hide();
-    form.find('.weak').hide();
-    form.find('.medium').hide();
-    form.find('.strong').hide();
 
-    form.find('#password').on('keyup', () => {
-        let passwordStrength = passwordChecker($('#password').val());
-    
-        if (passwordStrength===1) {
-            $('.weak').show();
-            $('.medium').hide();
-            $('.strong').hide();
-        }else if (passwordStrength===2) {
-            $('.weak').show();
-            $('.medium').show();
-            $('.strong').hide();
-        }else if (passwordStrength===3) {
-            $('.weak').show();
-            $('.medium').show();
-            $('.strong').show();
-        }
+    form.find('#login').on('click', () =>{
+        console.log("zalogowano");  
     })
 
-    form.find('button').on('click', event => {
+    form.find('#login-button').on('click', event => {
         event.preventDefault();
         const login = $('#login').val();
         const password = $('#password').val();
@@ -82,12 +62,15 @@ export const registration = () => {
         passwordMinLength ? errorMessages.password.minLength.show() : errorMessages.password.minLength.hide();
 
         if(!required(login) && !required(password) && !min8Chars(password)){
+
             axios
-                .post('http://localhost:3000/users',{ 
-                    login: login, password: password
-                });
+                .get('http://localhost:3000/users')
+                .catch(error => {
+                    console.log("error", error);
+                })
         }
     })
 
     return fragment;
+
 }
