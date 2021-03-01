@@ -3,11 +3,18 @@ import * as views from '../views';
 
 export const navigation = () => {
     const fragment = $(document.createDocumentFragment());
-    const nav = $(`<nav class="top-nav"></nav> `);
+    const nav = $(`
+    <nav class="top-nav navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">SPA dla nerdów</a> 
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse justify-content-end" id="collapse">
+    </nav>`);
     const buttons = Object
                         .keys(views)
                         .map(viewName => {
-                            const button = $(`<button type="button">${viewName.toUpperCase()}</button>`);
+                            const button = $(`<li class="nav-button">${viewName.toUpperCase()}</li>`);
 
                             button.on('click', () => {
                                 const customEvent = new CustomEvent('navigation', {
@@ -18,7 +25,7 @@ export const navigation = () => {
                             })
                             return button;
                         });
-    nav.append(buttons);
+    nav.find('#collapse').append(buttons);
     fragment.append(nav);
     return fragment;
 }

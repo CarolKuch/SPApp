@@ -2,6 +2,7 @@ import $ from 'jquery';
 import axios from 'axios';
 
 export const rooms = () => {
+    $('.main-header').hide();
     const fragment = $(document.createDocumentFragment());
     const h2 = $('<h2>Pokoje</h2>');
     const roomsList = $('<section>Loading...</section>')
@@ -13,7 +14,7 @@ export const rooms = () => {
         .then(rooms=>
             rooms.map(room => {
                 const article = $(`
-                <article style="background-color: #fbbc04">
+                <article class="fragment-article">
                     <p>Ilość łóżek: ${room.beds}</p>
                     <p>Liczba gości: ${room.guests}</p>
                     <p>Cena pokoju: ${room.price.toFixed(2)} zł</p>

@@ -1,3 +1,16 @@
+@import "./scss/nav.scss";
+@import "./scss/header.scss";
+
+@font-face {
+    font-family: Roboto;
+    src: url(https://fonts.googleapis.com/css2?family=Roboto&display=swap);
+
+}
+
+body {
+    font-family: Roboto;
+}
+
 .weak,
 .medium,
 .strong {

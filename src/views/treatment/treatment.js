@@ -13,7 +13,7 @@ export const treatments = () => {
         .then(treatments=>
             treatments.map(treatment => {
                 const article = $(`
-                <article style="background-color: #fbbc04">
+                <article class="fragment-article">
                     <p>Obszar: ${treatment.area}</p>
                     <p>Czas trwania: ${treatment.time}</p>
                     <p>Cena: ${treatment.price.toFixed(2)} zł</p>

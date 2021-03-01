@@ -2,6 +2,7 @@ import $ from 'jquery';
 import axios from 'axios';
 
 export const home = () => {
+    $('.main-header').show();
     const fragment = $(document.createDocumentFragment());
     const h2 = $('<h2>Home</h2>');
     const p = $(`
@@ -14,6 +15,8 @@ export const home = () => {
     `)
     fragment.append(h2);
     fragment.append(p);
+
+    
     
     return fragment;
 };
