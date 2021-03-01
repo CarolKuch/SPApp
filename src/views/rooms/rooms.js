@@ -5,7 +5,7 @@ export const rooms = () => {
     $('.main-header').hide();
     const fragment = $(document.createDocumentFragment());
     const h2 = $('<h2>Pokoje</h2>');
-    const roomsList = $('<section>Loading...</section>')
+    const roomsList = $('<section class="text-center">Loading...</section>')
     fragment.append(h2)
     fragment.append(roomsList)
     axios
@@ -14,10 +14,11 @@ export const rooms = () => {
         .then(rooms=>
             rooms.map(room => {
                 const article = $(`
-                <article class="fragment-article">
+                <article class="fragment-article text-center">
                     <p>Ilość łóżek: ${room.beds}</p>
                     <p>Liczba gości: ${room.guests}</p>
                     <p>Cena pokoju: ${room.price.toFixed(2)} zł</p>
+                    <img src = "../../img/basket.svg"/>
                 </article>
             `);
 

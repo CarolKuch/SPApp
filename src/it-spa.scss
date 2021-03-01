@@ -1,5 +1,6 @@
 @import "./scss/nav.scss";
 @import "./scss/header.scss";
+@import "./scss/registration.scss";
 
 @font-face {
     font-family: Roboto;
@@ -13,9 +14,10 @@ body {
 
 .weak,
 .medium,
-.strong {
+.strong,
+.password-strength-description {
     display: inline-block;
-    width: 40px;
+    width: 50px;
     height: 10px;
 }
 

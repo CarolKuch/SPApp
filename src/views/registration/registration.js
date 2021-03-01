@@ -5,29 +5,29 @@ import { required } from './required';
 import { passwordChecker } from './passwordChecker';
 
 export const registration = () => {
+    $('.main-header').hide();
     const fragment = $(document.createDocumentFragment());
-    const h2 = $(`<h2>Rejestracja</h2>`);
-    const form = $(`
-        <form name="signUp" novalidate autocomplete="off">
-        <div class="form-group">    
-            <label>Login: </label>
-            <input id="login" type="text" />
-            <p class="text-danger" id="login-required">Login jest wymagany</p>
-        </div>
-        <div class="form-group">
-            <label>Hasło: </label>
-            <input id="password" type="password"/>
-            <p class="text-danger" id="password-required">Hasło jest wymagane!</p>
-            <p class="text-danger" id="password-min-length">Hasło jest zbyt krótkie!</p>
-        </div>
-            <p class="password-strength">
-                <div class="weak"></div>
-                <div class="medium"></div>
-                <div class="strong"></div>
-            </p>
-            <button type="button">Zarejestruj się</button>
-
-            
+    const form = $(`        
+        <form name="signUp" novalidate autocomplete="off" class="text-center">
+        <h2 class="text-center">Rejestracja</h2>
+            <div class="form-group">    
+                <label>Login: </label>
+                <input id="login" type="text" />
+                <p class="text-danger" id="login-required">Login jest wymagany</p>
+            </div>
+            <div class="form-group">
+                <label>Hasło: </label>
+                <input id="password" type="password"/>
+                <p class="text-danger" id="password-required">Hasło jest wymagane!</p>
+                <p class="text-danger" id="password-min-length">Hasło jest zbyt krótkie!</p>
+            </div>
+            <div class="password-strength-description">Siła hasła: </div>
+                <p class="password-strength">                    
+                    <div class="weak"></div>
+                    <div class="medium"></div>
+                    <div class="strong"></div>
+                </p>
+                <button type="button">Zarejestruj się</button>            
         </form>
     `);
     const errorMessages = {
@@ -39,8 +39,6 @@ export const registration = () => {
             minLength: form.find('#password-min-length'),
         }
     };
-
-    fragment.append(h2);
     fragment.append(form);
     errorMessages.login.required.hide();
     errorMessages.password.required.hide();

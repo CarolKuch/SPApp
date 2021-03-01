@@ -5,25 +5,24 @@ import { required } from '../registration/required';
 import { goHome } from '../home/home';
 
 export const login = () => {
+    $('.main-header').hide();
     const fragment = $(document.createDocumentFragment());
-    const h2 = $(`<h2>Logowanie</h2>`);
 
     const form = $(`
-        <form name="logIn" novalidate autocomplete="off">
-        <div class="form-group">    
-            <label>Login: </label>
-            <input id="login" type="text" />
-            <p class="text-danger" id="login-required">Login jest wymagany</p>
-        </div>
-        <div class="form-group">
-            <label>Hasło: </label>
-            <input id="password" type="password"/>
-            <p class="text-danger" id="password-required">Hasło jest wymagane!</p>
-            <p class="text-danger" id="password-min-length">Hasło jest niepoprawne!</p>
-        </div>
-            <button type="button" id="login-button">Zaloguj się</button>
-
-            
+        <form name="logIn" novalidate autocomplete="off" class="text-center">
+            <h2 class="text-center">Logowanie</h2>
+            <div class="form-group">    
+                <label>Login: </label>
+                <input id="login" type="text" />
+                <p class="text-danger" id="login-required">Login jest wymagany</p>
+            </div>
+            <div class="form-group">
+                <label>Hasło: </label>
+                <input id="password" type="password"/>
+                <p class="text-danger" id="password-required">Hasło jest wymagane!</p>
+                <p class="text-danger" id="password-min-length">Hasło jest niepoprawne!</p>
+            </div>
+                <button type="button" id="login-button">Zaloguj się</button>            
         </form>
     `);
 
@@ -37,7 +36,6 @@ export const login = () => {
         }
     };
 
-    fragment.append(h2);
     fragment.append(form);
     errorMessages.login.required.hide();
     errorMessages.password.required.hide();
