@@ -30,6 +30,15 @@ export const navigation = () => {
                             return button;
                         });
     nav.find('#collapse').append(buttons);
+    window.addEventListener('scroll', ()=>{
+        if (window.pageYOffset > 500){
+            $('.top-nav').removeClass(['bg-transparent']);
+            $('.top-nav').addClass(['bg-dark']);
+        }else{
+            $('.top-nav').removeClass(['bg-dark']);
+            $('.top-nav').addClass(['bg-transparent']);
+        }
+    });
     fragment.append(nav);
     return fragment;
 }

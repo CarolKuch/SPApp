@@ -6,22 +6,20 @@ h1 {
 
 .caption1 {
     bottom: 5%;
-    color: white;
 }
 
 .caption2 {
     top: 0%;
     right: -30%;
-    color: #343a40;
 }
 
 .caption3 {
     left: -30%;
     bottom: 10%;
-    color: white;
 }
 
-.carousel-item {
-    height: 80vh;
-    object-fit: fill;
+.d-block {
+    object-fit: cover;
+    height: 100vh;
+    color: white;
 }
