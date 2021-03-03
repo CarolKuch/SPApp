@@ -5,7 +5,6 @@ import { required } from './required';
 import { passwordChecker } from './passwordChecker';
 
 export const registration = () => {
-    $('.main-header').hide();
     const fragment = $(document.createDocumentFragment());
     const form = $(`        
         <form name="signUp" novalidate autocomplete="off" class="text-center">

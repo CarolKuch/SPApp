@@ -5,7 +5,6 @@ import { required } from '../registration/required';
 import { goHome } from '../home/home';
 
 export const login = () => {
-    $('.main-header').hide();
     const fragment = $(document.createDocumentFragment());
 
     const form = $(`

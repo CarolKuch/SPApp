@@ -1,10 +1,15 @@
 import $ from 'jquery';
 import axios from 'axios';
+import {changeCarouselLinks} from '../../common/changeCarouselLinks';
 
 export const treatments = () => {
-    $('.main-header').hide();
+    changeCarouselLinks([
+        'https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+        'https://images.unsplash.com/photo-1591343395082-e120087004b4?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1051&q=80',
+        'https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80'
+    ])
     const fragment = $(document.createDocumentFragment());
-    const h2 = $('<h2>Zabiegi</h2>');
+    const h2 = $('<h2 class="text-center">Zabiegi</h2>');
     const treatmentsList = $('<section class="text-center">Loading...</section>');
     fragment.append(h2);
     fragment.append(treatmentsList)

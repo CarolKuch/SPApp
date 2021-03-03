@@ -8,7 +8,7 @@
       "beds": 1,
       "guests": 1,
       "price": 170,
-      "img": "https://www.freepik.com/free-photo/pillow-bed_1255051.htm#page=1&query=hotel%20room&position=38"
+      "img": "https://images.unsplash.com/photo-1543674214-9a5c967100dc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80"
     },
     {
       "id": 2,
@@ -17,7 +17,7 @@
       "beds": 1,
       "guests": 2,
       "price": 240,
-      "img": "https://www.freepik.com/free-photo/pillow-bed_1255051.htm#page=1&query=hotel%20room&position=38"
+      "img": "https://images.unsplash.com/photo-1590490359854-dfba19688d70?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1934&q=80"
     },
     {
       "id": 3,
@@ -25,7 +25,8 @@
       "description": "Trochę większy pokój idealny dla zespołu trzech programistów",
       "beds": 2,
       "guests": 3,
-      "price": 290
+      "price": 290,
+      "img": "https://images.unsplash.com/photo-1594130139005-3f0c0f0e7c5e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
     },
     {
       "id": 4,
@@ -33,7 +34,8 @@
       "description": "Całkiem duży pokój idealny dla zespołu nawet czterech programistów",
       "beds": 2,
       "guests": 4,
-      "price": 340
+      "price": 340,
+      "img": "https://images.unsplash.com/photo-1591727328467-6f17f483c14d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
     }
   ],
   "treatments": [

@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 export const createHeader = (props) => {
-    const header = $(`
+    let header = $(`
     <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="10000">
         <ol class="carousel-indicators">
             <li data-target="#header-carousel" data-slide-to="0" class="active"></li>
@@ -10,7 +10,7 @@ export const createHeader = (props) => {
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="https://cdn.pixabay.com/photo/2016/02/19/10/51/stairs-1209439_1280.jpg" alt="First slide">
+                <img class="d-block w-100" src="${props[0]}" alt="First slide">
                 <div class="carousel-caption d-none d-md-block caption1">
                     <header class="main-header">
                         <h1>SPA dla nerdów</h1>
@@ -19,7 +19,7 @@ export const createHeader = (props) => {
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="https://images.unsplash.com/photo-1573088422077-b6ed78408ff4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=918&q=80" alt="Second slide">
+                <img class="d-block w-100" src=${props[1]} alt="Second slide">
                 <div class="carousel-caption d-none d-md-block caption2">
                     <header class="main-header">
                         <h1>SPA dla nerdów</h1>
@@ -28,7 +28,7 @@ export const createHeader = (props) => {
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="https://cdn.pixabay.com/photo/2017/02/27/15/12/rice-2103481_1280.jpg" alt="Third slide">
+                <img class="d-block w-100" src=${props[2]} alt="Third slide">
                 <div class="carousel-caption d-none d-md-block caption3">
                     <header class="main-header">
                         <h1>SPA dla nerdów</h1>
