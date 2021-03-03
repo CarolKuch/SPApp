@@ -1,13 +1,27 @@
 h1 {
     text-align: center;
-    color: #343a40;
     letter-spacing: 0.2rem;
     padding-top: 10vh;
 }
 
-.main-header {
-    height: 90vh;
-    background-image: url("https://images.pexels.com/photos/4239011/pexels-photo-4239011.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-    background-position: center;
-    background-repeat: no-repeat;
+.caption1 {
+    bottom: 5%;
+    color: white;
+}
+
+.caption2 {
+    top: 0%;
+    right: -30%;
+    color: #343a40;
+}
+
+.caption3 {
+    left: -30%;
+    bottom: 10%;
+    color: white;
+}
+
+.carousel-item {
+    height: 80vh;
+    object-fit: fill;
 }

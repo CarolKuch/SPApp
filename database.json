@@ -7,7 +7,8 @@
       "description": "Niewielki pokój idealny dla jednego programisty",
       "beds": 1,
       "guests": 1,
-      "price": 170
+      "price": 170,
+      "img": "https://www.freepik.com/free-photo/pillow-bed_1255051.htm#page=1&query=hotel%20room&position=38"
     },
     {
       "id": 2,
@@ -15,7 +16,8 @@
       "description": "Standardowy pokój idealny dla zespołu dwóch programistów",
       "beds": 1,
       "guests": 2,
-      "price": 240
+      "price": 240,
+      "img": "https://www.freepik.com/free-photo/pillow-bed_1255051.htm#page=1&query=hotel%20room&position=38"
     },
     {
       "id": 3,
