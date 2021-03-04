@@ -18,20 +18,22 @@ export const rooms = () => {
         .then(response=>response.data)
         .then(rooms=>
             rooms.map(room => {
-                console.log(room.img);
+
                 const article = $(`
-                <article class="fragment-article text-center">
-                <div>
-                    <img src = ${room.img}/>
-                    <p>Ilość łóżek: ${room.beds}</p>
-                    <p>Liczba gości: ${room.guests}</p>
-                    <p>Cena pokoju: ${room.price.toFixed(2)} zł</p>
-                </div>
+                <article class="fragment-article">
+                        <p>Ilość łóżek: ${room.beds}</p>
+                        <p>Liczba gości: ${room.guests}</p>
+                        <p>Cena pokoju: ${room.price.toFixed(2)} zł</p>
                 </article>
             `);
 
-            const h4 = $(`<h4>${room.name}</h4>`);
-            h4.on('click', () => {
+            const roomHeaderImg = $(`
+                <div class="room-header-img">
+                    <h4>${room.name}</h4>
+                    <img src = ${room.img}/>
+                </div>
+            `);
+            roomHeaderImg.on('click', () => {
                 const customEvent = new CustomEvent('navigation', {
                     detail: {
                         name: 'room-details',
@@ -41,7 +43,7 @@ export const rooms = () => {
                 document.dispatchEvent(customEvent);
             });
 
-            article.prepend(h4);
+            article.prepend(roomHeaderImg);
 
             return article;
 

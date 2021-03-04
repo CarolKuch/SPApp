@@ -26,8 +26,13 @@ export const treatments = () => {
                 </article>
             `);
 
-            const h4 = $(`<h4>${treatment.name}</h4>`);
-            h4.on('click', () => {
+            const treatmentHeaderImg = $(`
+                <div class="room-header-img">
+                    <h4>${treatment.name}</h4>
+                    <img src = ${treatment.img}/>
+                </div>
+            `);
+            treatmentHeaderImg.on('click', () => {
                 const customEvent = new CustomEvent('navigation', {
                     detail: {
                         name: 'treatment-details',
@@ -37,7 +42,7 @@ export const treatments = () => {
                 document.dispatchEvent(customEvent);
             });
 
-            article.prepend(h4);
+            article.prepend(treatmentHeaderImg);
 
             return article;
 

@@ -44,49 +44,56 @@
       "name": "Masaż rozgrzanym monitorem",
       "area": "plecy",
       "time": 30,
-      "price": 80
+      "price": 80,
+      "img": "https://images.unsplash.com/photo-1582105666449-b431795d12c6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
     },
     {
       "id": 2,
       "name": "Biczowanie kablem od myszy",
       "area": "plecy",
       "time": 20,
-      "price": 70
+      "price": 70,
+      "img": "https://images.unsplash.com/photo-1586816879360-004f5b0c51e5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80"
     },
     {
       "id": 3,
       "name": "Peeling odłamkami płyty CD",
       "area": "twarz",
       "time": 15,
-      "price": 50
+      "price": 50,
+      "img": "https://images.unsplash.com/photo-1595491542937-3de00ac7e08a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80"
     },
     {
       "id": 4,
       "name": "Pedicure woskiem z USB",
       "area": "stopy",
       "time": 25,
-      "price": 100
+      "price": 100,
+      "img": "https://images.unsplash.com/photo-1529982412356-901cc3a363cf?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80"
     },
     {
       "id": 5,
       "name": "Manicure analogowo-cyfrowy",
       "area": "dłonie",
       "time": 45,
-      "price": 150
+      "price": 150,
+      "img": "https://images.unsplash.com/photo-1608613615031-457713746a35?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
     },
     {
       "id": 6,
       "name": "Kąpiel w gorącej kawie",
       "area": "ciało",
       "time": 60,
-      "price": 200
+      "price": 200,
+      "img": "https://images.unsplash.com/photo-1602008796760-4eab75054fb7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"
     },
     {
       "id": 7,
       "name": "Depilacja dyskiem twardym",
       "area": "ciało",
       "time": 45,
-      "price": 120
+      "price": 120,
+      "img": "https://images.unsplash.com/photo-1562038969-e85c13ecb2ac?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"
     }
   ]
 }

@@ -31,11 +31,9 @@ export const navigation = () => {
                         });
     nav.find('#collapse').append(buttons);
     window.addEventListener('scroll', ()=>{
-        if (window.pageYOffset > 500){
+        if (window.pageYOffset > 50){
             $('.top-nav').removeClass(['bg-transparent']);
-            $('.top-nav').addClass(['bg-dark']);
         }else{
-            $('.top-nav').removeClass(['bg-dark']);
             $('.top-nav').addClass(['bg-transparent']);
         }
     });
