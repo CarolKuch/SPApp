@@ -13,4 +13,24 @@
             width: 70vw;
         }
     }
+
+    .fragment-article {
+        width: 80vw;
+    }
+
+    .room-header-img {
+        width: 60%;
+
+        img {
+            height: 400px;
+        }
+    }
+
+}
+
+@media (max-width: 1200px) {
+
+    .fragment-article {
+        width: 80vw;
+    }
 }

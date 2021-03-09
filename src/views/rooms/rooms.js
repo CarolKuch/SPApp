@@ -1,6 +1,8 @@
 import $ from 'jquery';
 import axios from 'axios';
 import {changeCarouselLinks} from '../../common/changeCarouselLinks';
+import basketIcon from '../../img/basket.svg';
+import {basket} from '../../common/basket';
 
 export const rooms = () => {
     changeCarouselLinks(
@@ -18,13 +20,20 @@ export const rooms = () => {
         .then(response=>response.data)
         .then(rooms=>
             rooms.map(room => {
-
                 const article = $(`
-                <article class="fragment-article">
+                <article class="fragment-article d-flex">
+                    <div class="article-container">
                         <p>Ilość łóżek: ${room.beds}</p>
                         <p>Liczba gości: ${room.guests}</p>
                         <p>Cena pokoju: ${room.price.toFixed(2)} zł</p>
+                    <div>
                 </article>
+            `);
+
+            const basketButton = $(`
+                <button class="basket-button">Dodaj do koszyka
+                    <img src=${basketIcon} alt="koszyk" class="basket"/>
+                </button>
             `);
 
             const roomHeaderImg = $(`
@@ -43,7 +52,12 @@ export const rooms = () => {
                 document.dispatchEvent(customEvent);
             });
 
+            basketButton.on('click', () => {
+              alert("Produkt dodano do koszyka");
+            });
+
             article.prepend(roomHeaderImg);
+            article.find('.article-container').append(basketButton);
 
             return article;
 
@@ -52,6 +66,5 @@ export const rooms = () => {
         .then(articles => {
             roomsList.empty().append(articles);
         });    
-
     return fragment;
 };

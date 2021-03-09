@@ -1,6 +1,8 @@
 import $ from 'jquery';
 import axios from 'axios';
 import {changeCarouselLinks} from '../../common/changeCarouselLinks';
+import basketIcon from '../../img/basket.svg';
+import {basket} from '../../common/basket';
 
 export const treatments = () => {
     changeCarouselLinks([
@@ -19,12 +21,17 @@ export const treatments = () => {
         .then(treatments=>
             treatments.map(treatment => {
                 const article = $(`
-                <article class="fragment-article text-center">
-                    <p>Obszar: ${treatment.area}</p>
-                    <p>Czas trwania: ${treatment.time}</p>
-                    <p>Cena: ${treatment.price.toFixed(2)} zł</p>
+                <article class="fragment-article text-center fragment-article d-flex">
+                    <div class="d-flex flex-column">
+                        <p>Obszar: ${treatment.area}</p>
+                        <p>Czas trwania: ${treatment.time}</p>
+                        <div class="align-self-end">Cena: ${treatment.price.toFixed(2)} zł</div>
+                        <button class="basket-button">Dodaj do koszyka
+                            <img src=${basketIcon} alt="koszyk" class="basket"/>
+                        </button>
+                    </div>
                 </article>
-            `);
+            `); 
 
             const treatmentHeaderImg = $(`
                 <div class="room-header-img">

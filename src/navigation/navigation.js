@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import * as views from '../views';
+import basketIcon from '../img/basket.svg';
 
 export const navigation = () => {
     const fragment = $(document.createDocumentFragment());
@@ -29,7 +30,16 @@ export const navigation = () => {
                             })
                             return button;
                         });
+    const basketButton = (`
+        <div class="top-nav-container">
+            <li class="nav-button nav-basket">
+                <img src=${basketIcon} alt="koszyk" class="basket"/>
+            </li>
+        </div>
+    `);
     nav.find('#collapse').append(buttons);
+    nav.find('#collapse').append(basketButton);
+
     window.addEventListener('scroll', ()=>{
         if (window.pageYOffset > 50){
             $('.top-nav').removeClass(['bg-transparent']);
