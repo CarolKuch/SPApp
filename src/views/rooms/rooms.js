@@ -6,6 +6,8 @@ import {basketCounter} from '../../common/basket';
 import { calendar } from '../../common/calendar';
 
 export const rooms = () => {
+    $('#header-carousel').show(); 
+    $('.top-nav').addClass(['bg-transparent']);
     changeCarouselLinks(
     ['https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
     'https://images.unsplash.com/photo-1566195992011-5f6b21e539aa?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=967&q=80',
@@ -58,8 +60,11 @@ export const rooms = () => {
                 basketCounter();
             });
             article.prepend(roomHeaderImg);
-            article.find('.article-container').append(basketButton);
+
+
             article.find('.article-container').append(calendar);
+            article.find('.article-container').append(basketButton);
+
             return article;
             }
             ))

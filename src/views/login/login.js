@@ -6,7 +6,7 @@ import { goHome } from '../home/home';
 
 export const login = () => {
     const fragment = $(document.createDocumentFragment());
-
+    $('#header-carousel').hide(); 
     const form = $(`
         <form name="logIn" novalidate autocomplete="off" class="text-center">
             <h2 class="text-center">Logowanie</h2>
