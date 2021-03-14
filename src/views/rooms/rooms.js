@@ -2,7 +2,8 @@ import $ from 'jquery';
 import axios from 'axios';
 import {changeCarouselLinks} from '../../common/changeCarouselLinks';
 import basketIcon from '../../img/basket.svg';
-import {basket} from '../../common/basket';
+import {basketCounter} from '../../common/basket';
+import {calendar} from '../../common/calendar'
 
 export const rooms = () => {
     changeCarouselLinks(
@@ -53,10 +54,11 @@ export const rooms = () => {
             });
 
             basketButton.on('click', () => {
-              alert("Produkt dodano do koszyka");
+                basketCounter();
             });
 
             article.prepend(roomHeaderImg);
+            article.find('.article-container').append(calendar);
             article.find('.article-container').append(basketButton);
 
             return article;
@@ -66,5 +68,6 @@ export const rooms = () => {
         .then(articles => {
             roomsList.empty().append(articles);
         });    
+        
     return fragment;
 };

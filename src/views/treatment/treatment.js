@@ -2,7 +2,7 @@ import $ from 'jquery';
 import axios from 'axios';
 import {changeCarouselLinks} from '../../common/changeCarouselLinks';
 import basketIcon from '../../img/basket.svg';
-import {basket} from '../../common/basket';
+import {basketCounter} from '../../common/basket';
 
 export const treatments = () => {
     changeCarouselLinks([
@@ -22,16 +22,19 @@ export const treatments = () => {
             treatments.map(treatment => {
                 const article = $(`
                 <article class="fragment-article text-center fragment-article d-flex">
-                    <div class="d-flex flex-column">
+                    <div class="article-container">
                         <p>Obszar: ${treatment.area}</p>
                         <p>Czas trwania: ${treatment.time}</p>
                         <div class="align-self-end">Cena: ${treatment.price.toFixed(2)} zł</div>
-                        <button class="basket-button">Dodaj do koszyka
-                            <img src=${basketIcon} alt="koszyk" class="basket"/>
-                        </button>
                     </div>
                 </article>
             `); 
+
+            const basketButton = $(`
+                <button class="basket-button">Dodaj do koszyka
+                    <img src=${basketIcon} alt="koszyk" class="basket"/>
+                </button>
+            `);
 
             const treatmentHeaderImg = $(`
                 <div class="room-header-img">
@@ -39,6 +42,11 @@ export const treatments = () => {
                     <img src = ${treatment.img}/>
                 </div>
             `);
+            
+            basketButton.on('click', () => {
+                basketCounter();
+              });
+
             treatmentHeaderImg.on('click', () => {
                 const customEvent = new CustomEvent('navigation', {
                     detail: {
@@ -50,6 +58,7 @@ export const treatments = () => {
             });
 
             article.prepend(treatmentHeaderImg);
+            article.find('.article-container').append(basketButton);
 
             return article;
 

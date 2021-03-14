@@ -3,3 +3,4 @@ export * from './rooms/rooms';
 export * from './treatment/treatment';
 export * from './registration/registration';
 export * from './login/login';
+export * from '../common/calendar'

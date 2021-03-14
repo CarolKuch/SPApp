@@ -1,5 +1,7 @@
 import $ from 'jquery';
+let counter = 0;
 
-export const basket = () => {
-    alert("OK");
+export let basketCounter = (info) => {
+    if (info != "nav") counter++;
+    return counter;
 };

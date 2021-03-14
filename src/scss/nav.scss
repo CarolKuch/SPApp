@@ -33,7 +33,7 @@
     cursor: pointer;
 
     &:hover {
-        color: lightcyan;
+        color: #ffcc99;
         transition: 0.2s ease-in-out;
     }
 }
@@ -46,6 +46,11 @@
     border: 1px solid #2b2b2b;
 
     &:hover {
-        background-color: lightcyan;
+        background-color: #ffcc99;
+    }
+
+    .basketCounter {
+        color: #2b2b2b;
+
     }
 }
