@@ -50,9 +50,10 @@ h4 {
 
 .basket-button {
     color: #343a40;
-    background-color: white;
+    display: block;
+    background-color: #FFA48C;
     padding: 15px;
-    margin-top: 10vh;
+    margin: 10vh auto;
     border-radius: 30px;
     -webkit-box-shadow: 5px 5px 7px 7px rgba(0, 0, 0, 0.65);
     box-shadow: 5px 5px 7px 7px rgba(0, 0, 0, 0.65);

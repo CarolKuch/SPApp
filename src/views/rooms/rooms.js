@@ -3,7 +3,7 @@ import axios from 'axios';
 import {changeCarouselLinks} from '../../common/changeCarouselLinks';
 import basketIcon from '../../img/basket.svg';
 import {basketCounter} from '../../common/basket';
-import {calendar} from '../../common/calendar'
+import { calendar } from '../../common/calendar';
 
 export const rooms = () => {
     changeCarouselLinks(
@@ -43,6 +43,7 @@ export const rooms = () => {
                     <img src = ${room.img}/>
                 </div>
             `);
+
             roomHeaderImg.on('click', () => {
                 const customEvent = new CustomEvent('navigation', {
                     detail: {
@@ -56,18 +57,14 @@ export const rooms = () => {
             basketButton.on('click', () => {
                 basketCounter();
             });
-
             article.prepend(roomHeaderImg);
-            article.find('.article-container').append(calendar);
             article.find('.article-container').append(basketButton);
-
+            article.find('.article-container').append(calendar);
             return article;
-
             }
             ))
         .then(articles => {
             roomsList.empty().append(articles);
-        });    
-        
+        }); 
     return fragment;
 };

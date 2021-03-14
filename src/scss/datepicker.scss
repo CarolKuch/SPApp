@@ -1,0 +1,33 @@
+.ui-datepicker {
+    background-color: #fff;
+    width: 300px;
+}
+
+.ui-datepicker-header {
+    background-color: #ffcc99;
+}
+
+.ui-datepicker-title,
+.ui-widget-content .ui-state-default {
+    color: #343a40;
+}
+
+.ui-widget-content .ui-state-default {
+    text-align: center;
+    background: #fff;
+    font-weight: normal;
+}
+
+.ui-widget-content .ui-state-default:hover {
+    border: 0px;
+    text-align: center;
+    background: #000;
+    font-weight: normal;
+    color: #fff;
+}
+
+.ui-widget-content .ui-state-active {
+    border: 0px;
+    background: #616eff;
+    color: #fff;
+}
