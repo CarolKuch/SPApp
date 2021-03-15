@@ -4,6 +4,7 @@ import basketIcon from '../img/basket.svg';
 import {basketCounter} from '../common/basketBehavior';
 
 export const navigation = () => {
+    let view;
     const fragment = $(document.createDocumentFragment());
     const nav = $(`
     <nav class="top-nav navbar navbar-expand-md navbar-dark bg-transparent">
@@ -22,12 +23,15 @@ export const navigation = () => {
                                 </div>
                             `);
 
+                            
+
                             button.on('click', () => {
                                 const customEvent = new CustomEvent('navigation', {
                                 detail:{
                                     name: viewName  
                                 }})
-                                document.dispatchEvent(customEvent);                                
+                                document.dispatchEvent(customEvent);
+                                view = viewName;
                             })
                             return button;
                         });
@@ -49,8 +53,9 @@ export const navigation = () => {
   
 
     window.addEventListener('scroll', ()=>{
-        if (window.pageYOffset > 50){
+        if (window.pageYOffset > 50 || view == "registration" || view == "login"){
             $('.top-nav').removeClass(['bg-transparent']);
+            console.log(view);
         }else{
             $('.top-nav').addClass(['bg-transparent']);
         }
