@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import * as views from '../views';
 import basketIcon from '../img/basket.svg';
-import {basketCounter} from '../common/basket';
+import {basketCounter} from '../common/basketBehavior';
 
 export const navigation = () => {
     const fragment = $(document.createDocumentFragment());

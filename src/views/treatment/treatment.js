@@ -2,7 +2,7 @@ import $ from 'jquery';
 import axios from 'axios';
 import {changeCarouselLinks} from '../../common/changeCarouselLinks';
 import basketIcon from '../../img/basket.svg';
-import {basketCounter} from '../../common/basket';
+import {basketCounter} from '../../common/basketBehavior';
 
 export const treatments = () => {
     $('#header-carousel').show(); 

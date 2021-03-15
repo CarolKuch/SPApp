@@ -20,9 +20,11 @@ export let calendar = () => {
         <input 
             class = "datepicker datepicker-from" 
             type = "date" 
+            min = "${currentDate}"
             max = "${maxDate}" 
             value = "${currentDate}"
-            min = "${currentDate}"/>
+            onkeydown="return false"
+        />
     `);
 
     let datepickerTo = $(`
@@ -30,9 +32,11 @@ export let calendar = () => {
         <input 
             class = "datepicker datepicker-to" 
             type = "date" 
+            min = "${tomorrow}"
             max = "${maxDate}" 
             value = "${tomorrow}"   
-            min = "${tomorrow}"/>`
+            onkeydown="return false"
+        />`
     );
 
     datepickerFrom.on('change paste keyup', (e) => {
@@ -40,6 +44,11 @@ export let calendar = () => {
         $('.datepicker-to').val(nextDay);
         $('.datepicker-to').attr("min", nextDay);
     });
+
+    function myFunction() {
+        var popup = document.getElementById("myPopup");
+        popup.classList.toggle("show");
+      }
    
 
     fragment.empty().append(datepickerFrom);    

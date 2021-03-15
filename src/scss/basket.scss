@@ -1,0 +1,69 @@
+.basket-header {
+    text-align: center;
+}
+
+.purchase-button {
+    color: #343a40;
+    grid-column: 3/ span 2;
+    background-color: #E6957E;
+    padding: 15px;
+    border-radius: 30px;
+    -webkit-box-shadow: 5px 5px 7px 7px rgba(0, 0, 0, 0.25);
+    box-shadow: 5px 5px 7px 7px rgba(0, 0, 0, 0.25);
+    max-width: 300px;
+
+    &:hover {
+        background-color: #FFA48C;
+        transition: 0.3s ease-in-out;
+    }
+}
+
+.basket-container {
+    width: 90%;
+    margin: 15vh auto;
+    display: grid;
+    grid-template-columns: 300px repeat(3, 1fr);
+    grid-template-rows: repeat(auto, 1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 50px;
+
+    h2 {
+        grid-column: span 4;
+        margin: 0 auto;
+    }
+
+    .basket-row {
+        grid-column: span 4;
+        display: grid;
+        grid-template-columns: 300px repeat(3, 1fr);
+        grid-column-gap: 30px;
+        border-bottom: 1px solid #343a40;
+        padding: 10px;
+
+        div,
+        h5,
+        input {
+            display: inline-block;
+            grid-column: span 1;
+
+
+        }
+
+        img {
+            width: 200px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 0px;
+            height: fit-content;
+            width: 80px;
+        }
+
+    }
+
+    .basket-total {
+        grid-column: 3/ span 2;
+    }
+
+}

@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import $ from 'jquery';
-import { createFooter, createHeader, createMain } from './common';
+import { createFooter, createHeader, createMain, createBasket } from './common';
 import { navigation } from './navigation/navigation';
 import './it-spa.scss';
 
@@ -14,9 +14,11 @@ let itSpaHeader = createHeader([
 
 const itSpaNavigation = navigation();
 const itSpaMain = createMain();
+const itSpaBasket = createBasket();
 const itSpaFooter = createFooter();
 
 body.append(itSpaNavigation);
 body.append(itSpaHeader);
 body.append(itSpaMain);
+body.append(itSpaBasket);
 body.append(itSpaFooter);

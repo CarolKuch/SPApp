@@ -5,6 +5,7 @@ import {roomDetails} from '../views/rooms/roomDetails'
 export const createMain = () => {
     const main = $(`
         <main>
+        
         </main>
     `);
 
