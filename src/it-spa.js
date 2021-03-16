@@ -3,6 +3,7 @@ import $ from 'jquery';
 import { createFooter, createHeader, createMain, createBasket } from './common';
 import { navigation } from './navigation/navigation';
 import './it-spa.scss';
+import { basketBehavior } from './common/basketBehavior';
 
 const body = $(document.body);
 
@@ -22,3 +23,5 @@ body.append(itSpaHeader);
 body.append(itSpaMain);
 body.append(itSpaBasket);
 body.append(itSpaFooter);
+
+basketBehavior();
