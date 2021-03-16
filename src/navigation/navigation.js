@@ -9,7 +9,7 @@ export const navigation = () => {
     const nav = $(`
     <nav class="top-nav navbar navbar-expand-md navbar-dark bg-transparent">
         <a class="navbar-brand" href="#">SPA dla nerdów</a> 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#collapse" aria-controls="#collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
     <div class="collapse navbar-collapse justify-content-end" id="collapse">
@@ -21,9 +21,7 @@ export const navigation = () => {
                                 <div class="top-nav-container">
                                     <li class="nav-button">${viewName.toUpperCase()}</li>
                                 </div>
-                            `);
-
-                            
+                            `);                            
 
                             button.on('click', () => {
                                 const customEvent = new CustomEvent('navigation', {
@@ -33,6 +31,7 @@ export const navigation = () => {
                                 document.dispatchEvent(customEvent);
                                 view = viewName;
                             })
+                            
                             return button;
                         });
     let basketButton = (`
@@ -44,6 +43,10 @@ export const navigation = () => {
         </div>
     `);
 
+    nav.on('click', () => {
+        $('.top-nav').removeClass(['bg-transparent']);
+    })
+     
     nav.find('#collapse').append(buttons);
     nav.find('#collapse').append(basketButton);
     setInterval(()=>{ 
@@ -55,7 +58,6 @@ export const navigation = () => {
     window.addEventListener('scroll', ()=>{
         if (window.pageYOffset > 50 || view == "registration" || view == "login"){
             $('.top-nav').removeClass(['bg-transparent']);
-            console.log(view);
         }else{
             $('.top-nav').addClass(['bg-transparent']);
         }
