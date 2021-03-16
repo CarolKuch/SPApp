@@ -16,7 +16,7 @@ export let calendar = () => {
     `);
 
     let datepickerFrom = $(`
-        <p "date-description">Wybierz datę początku pobytu:</p> 
+        <p "date-description">Początek pobytu:</p> 
         <input 
             class = "datepicker datepicker-from" 
             type = "date" 
@@ -28,7 +28,7 @@ export let calendar = () => {
     `);
 
     let datepickerTo = $(`
-        <p class = "date-description">Wybierz datę końca pobytu:</p>
+        <p class = "date-description">Koniec pobytu:</p>
         <input 
             class = "datepicker datepicker-to" 
             type = "date" 
@@ -44,12 +44,6 @@ export let calendar = () => {
         $('.datepicker-to').val(nextDay);
         $('.datepicker-to').attr("min", nextDay);
     });
-
-    function myFunction() {
-        var popup = document.getElementById("myPopup");
-        popup.classList.toggle("show");
-      }
-   
 
     fragment.empty().append(datepickerFrom);    
     fragment.append(datepickerTo);  
