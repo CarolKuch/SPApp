@@ -28,7 +28,7 @@ export const rooms = () => {
                     <div class="article-container">
                         <p>Ilość łóżek: ${room.beds}</p>
                         <p>Liczba gości: ${room.guests}</p>
-                        <p>Cena pokoju: ${room.price.toFixed(2)} zł</p>
+                        <p class="price-of-item">Cena: ${room.price.toFixed(2)} zł</p>
                     <div>
                 </article>
             `);
@@ -40,9 +40,9 @@ export const rooms = () => {
             `);
 
             const roomHeaderImg = $(`
-                <div class="room-header-img">
-                    <h4>${room.name}</h4>
-                    <img src = ${room.img}/>
+                <div class = "room-header-img">
+                    <h4 class = "item-name">${room.name}</h4>
+                    <img class = "item-img" src = ${room.img}/>
                 </div>
             `);
 

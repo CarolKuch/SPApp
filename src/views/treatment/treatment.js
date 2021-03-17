@@ -27,7 +27,7 @@ export const treatments = () => {
                     <div class="article-container">
                         <p>Obszar: ${treatment.area}</p>
                         <p>Czas trwania: ${treatment.time}</p>
-                        <div class="align-self-end">Cena: ${treatment.price.toFixed(2)} zł</div>
+                        <div class="price-of-item">Cena: ${treatment.price.toFixed(2)} zł</div>
                     </div>
                 </article>
             `); 
@@ -40,8 +40,8 @@ export const treatments = () => {
 
             const treatmentHeaderImg = $(`
                 <div class="room-header-img">
-                    <h4>${treatment.name}</h4>
-                    <img src = ${treatment.img}/>
+                    <h4 class = "item-name">${treatment.name}</h4>
+                    <img class = "item-img" src = ${treatment.img}/>
                 </div>
             `);
             
