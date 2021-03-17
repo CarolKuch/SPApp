@@ -1,9 +1,31 @@
 import $ from 'jquery';
+import {calendar} from '../common/calendar';
+
 let counter = 0;
+
+let updateBasketTotal = () => {
+    let basketRows = $(document).find('.basket-row');
+    let total = 0;
+    for(let i = 1; i < basketRows.length-1; i++){
+        let basketRow = basketRows[i];
+        let priceContainer = $(basketRow).find('.basket-price')[0];
+        let quantityContainer = $(basketRow).find('.basket-quantity')[0];
+        let price = priceContainer.innerText.replace('zł', '');
+        let quantity = quantityContainer.value;
+        total += quantity * price;
+    }
+    total = Math.round(total*100)/100;
+    $(basketRows).find('.basket-total-price').empty().append(total+" zł");
+}
+
+export let basketBehavior = () => {
+
+basketCounter();
+
+}
 
 export let basketCounter = (info) => {
     if (info != "nav") counter++;
-    
 
     let addToBasketButtons = $(document).find('.basket-button');
 
@@ -18,13 +40,41 @@ export let basketCounter = (info) => {
             <div class="basket-date"></div>
             <div class="basket-price">${price}</div>
             <div>
-                <input class="basket-quantity" type="number" value="2">
+                <input class="basket-quantity" type="number" value="1">
                 <button class="btn btn-danger" type="button">Usuń</button>
             </div>
         `;
         basketRow.innerHTML = basketRowContent;
-        let basketItems = $(document).find('.basket-container')[0];
-        basketItems.insertBefore(basketRow, basketTotal);
+        let basketContainer = $(document).find('.basket-container')[0];
+        basketContainer.insertBefore(basketRow, basketTotal);
+        $(basketContainer).find('.basket-date').last().append(calendar);
+        updateBasketTotal();
+    }
+
+    let removeBasketItem = (e) => {
+        let buttonClicked = e.target;
+        buttonClicked.parentElement.parentElement.remove();
+        updateBasketTotal();
+    }
+
+    let removeBasketItemButtons = $(document).find('.btn-danger');
+    for(let i = 0; i < removeBasketItemButtons.length; i++){
+        let removeBasketItemButton = removeBasketItemButtons[i];
+        $(removeBasketItemButton).on('click', removeBasketItem);
+    }
+    let quantityInputs = $(document).find('.basket-quantity');
+    
+    updateBasketTotal();
+
+    let quantityChanged = (e) => {
+        let input = e.target;
+        if( isNaN(input.value) || input.value <= 0 ) input.value = 1;
+        updateBasketTotal();
+    }
+
+    for(let i = 0; i < quantityInputs.length; i++){
+        let input = quantityInputs[i];
+        $(input).on('change', quantityChanged);
     }
 
     let addToBasketClicked = (e) => {
@@ -38,53 +88,9 @@ export let basketCounter = (info) => {
 
     for(let i = 0; i < addToBasketButtons.length; i++){
         var button = addToBasketButtons[i];
-        $(button).on('click', addToBasketClicked)
+        $(button).on('click', addToBasketClicked);
     }
 
 
     return counter;
-}
-
-export let basketBehavior = () => {
-    let removeBasketItemButtons = $(document).find('.btn-danger');
-    let quantityInputs = $(document).find('.basket-quantity');
-    
-    let updateBasketTotal = () => {
-        let basketRows = $(document).find('.basket-row');
-        let total = 0;
-        for(let i = 1; i < basketRows.length-1; i++){
-            let basketRow = basketRows[i];
-            let priceContainer = $(basketRow).find('.basket-price')[0];
-            let quantityContainer = $(basketRow).find('.basket-quantity')[0];
-            let price = priceContainer.innerText.replace('zł', '');
-            let quantity = quantityContainer.value;
-            total += quantity * price;
-        }
-        total = Math.round(total*100)/100;
-        $(basketRows).find('.basket-total-price').empty().append(total+" zł");
-    }
-
-    updateBasketTotal();
-
-    let removeBasketItem = (e) => {
-        let buttonClicked = e.target;
-        buttonClicked.parentElement.parentElement.remove();
-        updateBasketTotal();
-    }
-
-    let quantityChanged = (e) => {
-        let input = e.target;
-        if( isNaN(input.value) || input.value <= 0 ) input.value = 1;
-        updateBasketTotal();
-    }
-
-    for(let i = 0; i < quantityInputs.length; i++){
-        let input = quantityInputs[i];
-        $(input).on('change', quantityChanged);
-    }
-
-    for(let i = 0; i < removeBasketItemButtons.length; i++){
-        let button = removeBasketItemButtons[i];
-        $(button).on('click', removeBasketItem);
-    }
 }

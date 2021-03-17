@@ -1,5 +1,4 @@
 import $ from 'jquery';
-import {calendar} from './calendar';
 
 export const createBasket = () => {
     const basket = $(
@@ -18,6 +17,5 @@ export const createBasket = () => {
             <button class="purchase-button" type="button">ZAMÓW</button>
         </section>
     `);
-    basket.find('.basket-date').append(calendar);
     return basket;
 }

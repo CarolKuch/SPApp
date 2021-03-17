@@ -49,10 +49,10 @@ export const navigation = () => {
      
     nav.find('#collapse').append(buttons);
     nav.find('#collapse').append(basketButton);
-    setInterval(()=>{ 
-        $('.basketCounter').remove();
-        nav.find('.nav-basket').append(`<p class= "basketCounter">${basketCounter("nav")}</p>`);
-    }, 1000);
+    // setInterval(()=>{ 
+    //     $('.basketCounter').remove();
+    //     nav.find('.nav-basket').append(`<p class= "basketCounter">${basketCounter("nav")}</p>`);
+    // }, 1000);
   
 
     window.addEventListener('scroll', ()=>{
