@@ -18,8 +18,17 @@ export let addToBasket = (e) => {
         let basketRow = document.createElement('div');
         $(basketRow).attr('class', 'basket-row');
         let basketTotal = $(document).find('.basket-total')[0];
+        let basketItem = $(document).find('.basket-container')[0];
+        let basketItemNames = $(basketItem).find('.item-name');
+        for(let i = 0; i < basketItemNames.length; i++){
+            if(basketItemNames[i].innerText == title){
+                alert("Masz to już w koszyku, Kapturku");
+                retrun;
+            }
+        }
         let basketRowContent = `
-            <div class= "basket-product">${title}
+            <div class = "basket-product">
+                <span class = "item-name">${title}</span>
                 <img src="${image}" alt="Zdjęcie pokoju">
             </div>
             <div class="basket-date"></div>
