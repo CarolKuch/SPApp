@@ -1,16 +1,61 @@
 import $ from 'jquery';
+import {calendar} from '../common/calendar';
+
 let counter = 0;
 
 export let basketCounter = (info) => {
     if (info != "nav") counter++;
+
+
     return counter;
 }
 
+export let addToBasket = (e) => {
+
+    let addToBasketButtons = $(document).find('.basket-button');
+
+    let addItemToBasket = (title, image, price) => {
+        let basketRow = document.createElement('div');
+        $(basketRow).attr('class', 'basket-row');
+        let basketTotal = $(document).find('.basket-total')[0];
+        let basketRowContent = `
+            <div class= "basket-product">${title}
+                <img src="${image}" alt="Zdjęcie pokoju">
+            </div>
+            <div class="basket-date"></div>
+            <div class="basket-price">${price}</div>
+            <div>
+                <input class="basket-quantity" type="number" value="1">
+                <button class="btn btn-danger" type="button">Usuń</button>
+            </div>
+        `;
+        basketRow.innerHTML = basketRowContent;
+        let basketContainer = $(document).find('.basket-container')[0];
+        basketContainer.insertBefore(basketRow, basketTotal);
+        $(basketContainer).find('.basket-date').last().append(calendar);
+        basketBehavior();
+    }
+
+    let addToBasketClicked = (e) => {
+        let button = e.target;
+        let addedItem = button.parentElement.parentElement;
+        let title = $(addedItem).find('.item-name')[0].innerText;
+        let price = parseFloat($(addedItem).find('.price-of-item')[0].innerText.slice(6, 11)).toFixed(2);
+        let image = $(addedItem).find('.item-img')[0].src;
+        addItemToBasket(title, image, price);
+    }
+
+    addToBasketClicked(e);
+
+}
+
 export let basketBehavior = () => {
+
     let removeBasketItemButtons = $(document).find('.btn-danger');
     let quantityInputs = $(document).find('.basket-quantity');
     
     let updateBasketTotal = () => {
+
         let basketRows = $(document).find('.basket-row');
         let total = 0;
         for(let i = 1; i < basketRows.length-1; i++){

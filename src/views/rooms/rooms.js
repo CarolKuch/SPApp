@@ -2,8 +2,9 @@ import $ from 'jquery';
 import axios from 'axios';
 import {changeCarouselLinks} from '../../common/changeCarouselLinks';
 import basketIcon from '../../img/basket.svg';
-import {basketCounter} from '../../common/basketBehavior';
+import {basketCounter, addToBasket} from '../../common/basketBehavior';
 import { calendar } from '../../common/calendar';
+
 
 export const rooms = () => {
     $('#header-carousel').show(); 
@@ -28,7 +29,7 @@ export const rooms = () => {
                     <div class="article-container">
                         <p>Ilość łóżek: ${room.beds}</p>
                         <p>Liczba gości: ${room.guests}</p>
-                        <p>Cena pokoju: ${room.price.toFixed(2)} zł</p>
+                        <p class="price-of-item">Cena: ${room.price.toFixed(2)} zł</p>
                     <div>
                 </article>
             `);
@@ -41,8 +42,8 @@ export const rooms = () => {
 
             const roomHeaderImg = $(`
                 <div class="room-header-img">
-                    <h4>${room.name}</h4>
-                    <img src = ${room.img}/>
+                    <h4 class = "item-name">${room.name}</h4>
+                    <img class = "item-img" src = ${room.img}/>
                 </div>
             `);
 
@@ -56,8 +57,8 @@ export const rooms = () => {
                 document.dispatchEvent(customEvent);
             });
 
-            basketButton.on('click', () => {
-                basketCounter();
+            basketButton.on('click', (e) => {
+               addToBasket(e);
             });
             article.prepend(roomHeaderImg);
 
