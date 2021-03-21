@@ -2,7 +2,7 @@ import $ from 'jquery';
 import axios from 'axios';
 import {changeCarouselLinks} from '../../common/changeCarouselLinks';
 import basketIcon from '../../img/basket.svg';
-import {basketCounter, addToBasket} from '../../common/basketBehavior';
+import {addToBasket} from '../../common/basketBehavior';
 import { calendar } from '../../common/calendar';
 
 

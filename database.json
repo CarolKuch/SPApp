@@ -3,7 +3,7 @@
   "rooms": [
     {
       "id": 1,
-      "name": "Pokój unarny",
+      "name": "Pokój unarny dla singla",
       "description": "Niewielki pokój idealny dla jednego programisty",
       "beds": 1,
       "guests": 1,

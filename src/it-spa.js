@@ -3,7 +3,7 @@ import $ from 'jquery';
 import { createFooter, createHeader, createMain, createBasket } from './common';
 import { navigation } from './navigation/navigation';
 import './it-spa.scss';
-import { basketBehavior } from './common/basketBehavior';
+import { basketBehavior, basketCounterGetter } from './common/basketBehavior';
 
 const body = $(document.body);
 
@@ -25,3 +25,4 @@ body.append(itSpaBasket);
 body.append(itSpaFooter);
 
 basketBehavior();
+basketCounterGetter();

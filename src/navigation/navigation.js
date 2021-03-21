@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import * as views from '../views';
 import basketIcon from '../img/basket.svg';
-import {basketCounter} from '../common/basketBehavior';
+import {basketCounterGetter} from '../common/basketBehavior';
 
 export const navigation = () => {
     let view;
@@ -38,7 +38,7 @@ export const navigation = () => {
         <div class="top-nav-container">
             <li class="nav-button nav-basket">
                 <img src=${basketIcon} alt="koszyk" class="basket"/>
-                <p class="basketCounter">${basketCounter("nav")}</p>
+                <p class="basketCounter"></p>
             </li>
         </div>
     `);
@@ -49,11 +49,6 @@ export const navigation = () => {
      
     nav.find('#collapse').append(buttons);
     nav.find('#collapse').append(basketButton);
-    setInterval(()=>{ 
-        $('.basketCounter').remove();
-        nav.find('.nav-basket').append(`<p class= "basketCounter">${basketCounter("nav")}</p>`);
-    }, 1000);
-  
 
     window.addEventListener('scroll', ()=>{
         if (window.pageYOffset > 50 || view == "registration" || view == "login"){
@@ -63,5 +58,6 @@ export const navigation = () => {
         }
     });
     fragment.append(nav);
+
     return fragment;
 }

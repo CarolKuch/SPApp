@@ -1,18 +1,13 @@
 import $ from 'jquery';
 import {calendar} from '../common/calendar';
 
-let counter = 0;
-
-export let basketCounter = (info) => {
-    if (info != "nav") counter++;
-
-
-    return counter;
+export let basketCounterGetter = (length = 0) => {
+    let basketCounterParagraph = $(document).find('.basketCounter')[0];
+    $(basketCounterParagraph).text(length);
 }
 
 export let addToBasket = (e) => {
-
-    let addToBasketButtons = $(document).find('.basket-button');
+    let basketRows = $(document).find('.basket-row');
 
     let addItemToBasket = (title, image, price) => {
         let basketRow = document.createElement('div');
@@ -23,7 +18,7 @@ export let addToBasket = (e) => {
         for(let i = 0; i < basketItemNames.length; i++){
             if(basketItemNames[i].innerText == title){
                 alert("Masz to już w koszyku, Kapturku");
-                retrun;
+                return undefined;
             }
         }
         let basketRowContent = `
@@ -43,6 +38,7 @@ export let addToBasket = (e) => {
         basketContainer.insertBefore(basketRow, basketTotal);
         $(basketContainer).find('.basket-date').last().append(calendar);
         basketBehavior();
+        basketCounterGetter(basketRows.length-1);
     }
 
     let addToBasketClicked = (e) => {
@@ -77,6 +73,7 @@ export let basketBehavior = () => {
         }
         total = Math.round(total*100)/100;
         $(basketRows).find('.basket-total-price').empty().append(total+" zł");
+        
     }
 
     updateBasketTotal();
@@ -85,6 +82,7 @@ export let basketBehavior = () => {
         let buttonClicked = e.target;
         buttonClicked.parentElement.parentElement.remove();
         updateBasketTotal();
+        basketCounterGetter(basketRows.length-1);
     }
 
     let quantityChanged = (e) => {
