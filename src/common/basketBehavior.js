@@ -51,16 +51,13 @@ export let addToBasket = (e) => {
     }
 
     addToBasketClicked(e);
-
 }
 
 export let basketBehavior = () => {
-
     let removeBasketItemButtons = $(document).find('.btn-danger');
     let quantityInputs = $(document).find('.basket-quantity');
     
     let updateBasketTotal = () => {
-
         let basketRows = $(document).find('.basket-row');
         let total = 0;
         for(let i = 1; i < basketRows.length-1; i++){
@@ -73,7 +70,7 @@ export let basketBehavior = () => {
         }
         total = Math.round(total*100)/100;
         $(basketRows).find('.basket-total-price').empty().append(total+" zł");
-        
+        basketCounterGetter(basketRows.length-2);
     }
 
     updateBasketTotal();
@@ -82,7 +79,6 @@ export let basketBehavior = () => {
         let buttonClicked = e.target;
         buttonClicked.parentElement.parentElement.remove();
         updateBasketTotal();
-        basketCounterGetter(basketRows.length-1);
     }
 
     let quantityChanged = (e) => {
