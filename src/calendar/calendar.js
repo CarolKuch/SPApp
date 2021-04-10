@@ -1,14 +1,16 @@
 import $ from 'jquery';
+import {daysCounter} from './daysCounter';
+import {basketBehavior} from '../cart/cartBehavior';
 
 export let calendar = () => {
-    let currentDate = new Date().toISOString().slice(0, 10);
+    let startDate = new Date().toISOString().slice(0, 10);
 
     let addOneDay = (day) => {
         return day.slice(0,8) + (parseInt(day.slice(8,10), 10) + 1);
     }
 
-    let tomorrow = addOneDay(currentDate);
-    let maxDate = (parseInt(currentDate.slice(0, 4), 10) + 1) + currentDate.slice(4,10);
+    let endDate = addOneDay(startDate);
+    let maxDate = (parseInt(startDate.slice(0, 4), 10) + 1) + startDate.slice(4,10);
 
     let fragment = $(`
         <div class="datepickers-container">
@@ -20,9 +22,9 @@ export let calendar = () => {
         <input 
             class = "datepicker datepicker-from" 
             type = "date" 
-            min = "${currentDate}"
+            min = "${startDate}"
             max = "${maxDate}" 
-            value = "${currentDate}"
+            value = "${startDate}"
             onkeydown="return false"
         />
     `);
@@ -32,17 +34,24 @@ export let calendar = () => {
         <input 
             class = "datepicker datepicker-to" 
             type = "date" 
-            min = "${tomorrow}"
+            min = "${endDate}"
             max = "${maxDate}" 
-            value = "${tomorrow}"   
+            value = "${endDate}"   
             onkeydown="return false"
         />`
     );
 
     datepickerFrom.on('change paste keyup', (e) => {
-        let nextDay = addOneDay(e.target.value);
+        startDate = e.target.value;
+        let nextDay = addOneDay(startDate);
         $('.datepicker-to').val(nextDay);
         $('.datepicker-to').attr("min", nextDay);
+        basketBehavior();
+    });
+
+    datepickerTo.on('change paste keyup', (e) => {
+        endDate = e.target.value;
+        basketBehavior();
     });
 
     fragment.empty().append(datepickerFrom);    

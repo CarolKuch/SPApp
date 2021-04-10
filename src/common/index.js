@@ -1,4 +1,4 @@
 export * from './createHeader';
 export * from './createMain';
-export * from './createBasket';
+export * from '../cart/createCart';
 export * from './createFooter';

@@ -1,7 +1,6 @@
 import $ from 'jquery';
 import * as views from '../views';
 import basketIcon from '../img/basket.svg';
-import {basketCounterGetter} from '../common/basketBehavior';
 
 export const navigation = () => {
     let view;
@@ -49,6 +48,10 @@ export const navigation = () => {
      
     nav.find('#collapse').append(buttons);
     nav.find('#collapse').append(basketButton);
+
+    nav.find('.nav-basket').on('click', () => {
+        $(document).find('.basket-container').toggleClass('d-none');
+    })
 
     window.addEventListener('scroll', ()=>{
         if (window.pageYOffset > 50 || view == "registration" || view == "login"){

@@ -1,5 +1,6 @@
 import $ from 'jquery';
-import {calendar} from '../common/calendar';
+import {calendar} from '../calendar/calendar';
+import {daysCounter} from '../calendar/daysCounter';
 
 export let basketCounterGetter = (length = 0) => {
     let basketCounterParagraph = $(document).find('.basketCounter')[0];
@@ -27,7 +28,7 @@ export let addToBasket = (e) => {
                 <img src="${image}" alt="Zdjęcie pokoju">
             </div>
             <div class="basket-date"></div>
-            <div class="basket-price">${price}</div>
+            <div class="basket-price">${price} zł</div>
             <div>
                 <input class="basket-quantity" type="number" value="1">
                 <button class="btn btn-danger" type="button">Usuń</button>
@@ -66,7 +67,10 @@ export let basketBehavior = () => {
             let quantityContainer = $(basketRow).find('.basket-quantity')[0];
             let price = priceContainer.innerText.replace('zł', '');
             let quantity = quantityContainer.value;
-            total += quantity * price;
+            let startDay = $(basketRow).find('.datepicker')[0].value;
+            let endDay = $(basketRow).find('.datepicker')[1].value;
+            let daysCount = daysCounter(startDay, endDay);
+            total += quantity * price * daysCount;
         }
         total = Math.round(total*100)/100;
         $(basketRows).find('.basket-total-price').empty().append(total+" zł");

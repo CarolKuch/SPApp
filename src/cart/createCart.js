@@ -1,14 +1,14 @@
 import $ from 'jquery';
-import {calendar} from './calendar';
+import {calendar} from '../calendar/calendar';
 
 export const createBasket = () => {
     const basket = $(
-        `<section class="basket-container">
+        `<section class="basket-container d-none">
             <h2>Twój koszyk</h2>
             <div class="basket-row">
                 <h5 class = "basket-product-header row-item">Produkt/usługa</h5>
                 <h5 class = "basket-date-header row-item">Termin</h5>
-                <h5 class = "basket-price-header row-item">Cena</h5>
+                <h5 class = "basket-price-header row-item">Cena za dzień</h5>
                 <h5 class = "basket-quantity-header row-item">Ilość</h5>
             </div>
             <div class="basket-total basket-row">
@@ -18,6 +18,7 @@ export const createBasket = () => {
             <button class="purchase-button" type="button">ZAMÓW</button>
         </section>
     `);
+
     basket.find('.basket-date').append(calendar);
     return basket;
 }
