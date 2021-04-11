@@ -35,7 +35,7 @@ export const rooms = () => {
             `);
 
             const basketButton = $(`
-                <button class="basket-button">Dodaj do koszyka
+                <button class="basket-button room-basket-button">Dodaj do koszyka
                     <img src=${basketIcon} alt="koszyk" class="basket"/>
                 </button>
             `);

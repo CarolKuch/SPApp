@@ -5,4 +5,25 @@ form {
     background-repeat: no-repeat;
     background-position: center;
     margin-top: 20vh;
+
+    input {
+        padding: 10px 20px;
+    }
+}
+
+.login-button {
+    color: #343a40;
+    background-color: #E6957E;
+    border-radius: 30px;
+    margin: 10px;
+    height: 60px;
+    width: 150px;
+    box-sizing: border-box;
+    -webkit-box-shadow: 5px 5px 7px 7px rgba(0, 0, 0, 0.25);
+    box-shadow: 5px 5px 7px 7px rgba(0, 0, 0, 0.25);
+
+    &:hover {
+        background-color: #FFA48C;
+        transition: 0.3s ease-in-out;
+    }
 }

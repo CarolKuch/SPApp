@@ -1,10 +1,18 @@
 import $ from 'jquery';
 import {calendar} from '../calendar/calendar';
 import {daysCounter} from '../calendar/daysCounter';
+import { cookies } from '../cookies/cookies';
 
 export let basketCounterGetter = (length = 0) => {
     let basketCounterParagraph = $(document).find('.basketCounter')[0];
     $(basketCounterParagraph).text(length);
+    if(length === 0){
+        $(document).find('.basket-empty').removeClass('d-none');
+        $(document).find('.purchase-button').attr('disabled', true);
+    }else{
+        $(document).find('.basket-empty').addClass('d-none');
+        $(document).find('.purchase-button').removeAttr('disabled');
+    }
 }
 
 export let addToBasket = (e) => {
@@ -34,12 +42,16 @@ export let addToBasket = (e) => {
                 <button class="btn btn-danger" type="button">Usuń</button>
             </div>
         `;
+
         basketRow.innerHTML = basketRowContent;
         let basketContainer = $(document).find('.basket-container')[0];
         basketContainer.insertBefore(basketRow, basketTotal);
-        $(basketContainer).find('.basket-date').last().append(calendar);
+        if(e.target.className==="basket-button room-basket-button"){
+            $(basketContainer).find('.basket-date').last().append(calendar);
+        }
         basketBehavior();
         basketCounterGetter(basketRows.length-1);
+        cookies(title, image, price);
     }
 
     let addToBasketClicked = (e) => {
@@ -65,6 +77,10 @@ export let basketBehavior = () => {
         $(document).find('.backdrop').toggleClass('d-none');
     });
     
+    $(document).find('.backdrop .basket-container').on('click', (e) => {
+        e.stopPropagation();
+    });
+    
     let removeBasketItemButtons = $(document).find('.btn-danger');
     let quantityInputs = $(document).find('.basket-quantity');
     
@@ -77,17 +93,22 @@ export let basketBehavior = () => {
             let quantityContainer = $(basketRow).find('.basket-quantity')[0];
             let price = priceContainer.innerText.replace('zł', '');
             let quantity = quantityContainer.value;
-            let startDay = $(basketRow).find('.datepicker')[0].value;
-            let endDay = $(basketRow).find('.datepicker')[1].value;
-            let daysCount = daysCounter(startDay, endDay);
+            let daysCount = 1;
+            if($(basketRow).find('.basket-date')[0].firstChild){
+                let startDay = $(basketRow).find('.datepicker')[0].value;
+                let endDay = $(basketRow).find('.datepicker')[1].value;
+                daysCount = daysCounter(startDay, endDay);
+            }
             total += quantity * price * daysCount;
         }
         total = Math.round(total*100)/100;
         $(basketRows).find('.basket-total-price').empty().append(total+" zł");
         basketCounterGetter(basketRows.length-2);
-    }
 
+    }
+    
     updateBasketTotal();
+   
 
     let removeBasketItem = (e) => {
         let buttonClicked = e.target;
@@ -110,4 +131,6 @@ export let basketBehavior = () => {
         let button = removeBasketItemButtons[i];
         $(button).on('click', removeBasketItem);
     }
+
+    
 }

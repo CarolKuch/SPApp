@@ -28,7 +28,7 @@ export const registration = () => {
                     <div class="medium"></div>
                     <div class="strong"></div>
                 </p>
-                <button type="button">Zarejestruj się</button>            
+                <button type="button" class="login-button">Zarejestruj się</button>            
         </form>
     `);
     const errorMessages = {

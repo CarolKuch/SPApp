@@ -21,7 +21,7 @@ export const login = () => {
                 <p class="text-danger" id="password-required">Hasło jest wymagane!</p>
                 <p class="text-danger" id="password-min-length">Hasło jest niepoprawne!</p>
             </div>
-                <button type="button" id="login-button">Zaloguj się</button>            
+                <button type="button" class="login-button" id="login-button">Zaloguj się</button>            
         </form>
     `);
 

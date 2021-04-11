@@ -13,6 +13,7 @@ export const createBasket = () => {
                     <h5 class = "basket-price-header row-item">Cena za dzień</h5>
                     <h5 class = "basket-quantity-header row-item">Ilość</h5>
                 </div>
+                <div class="basket-empty"><strong>Aktualnie Twój koszyk jest pusty. </strong></div>
                 <div class="basket-total basket-row">
                     <strong class="basket-total-title">Łączna kwota zamówienia: </strong>
                     <span class="basket-total-price"> zł</span>
@@ -21,7 +22,5 @@ export const createBasket = () => {
             </section>
         </div>
     `);
-
-    basket.find('.basket-date').append(calendar);
     return basket;
 }

@@ -33,7 +33,7 @@ export const treatments = () => {
             `); 
 
             const basketButton = $(`
-                <button class="basket-button">Dodaj do koszyka
+                <button class="basket-button treatment-basket-button">Dodaj do koszyka
                     <img src=${basketIcon} alt="koszyk" class="basket"/>
                 </button>
             `);

@@ -2,6 +2,7 @@ import $ from 'jquery';
 import * as views from '../views';
 import basketIcon from '../img/basket.svg';
 
+
 export const navigation = () => {
     let view;
     const fragment = $(document.createDocumentFragment());

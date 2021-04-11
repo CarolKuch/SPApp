@@ -4,7 +4,7 @@ import { createFooter, createHeader, createMain, createBasket } from './common';
 import { navigation } from './navigation/navigation';
 import './it-spa.scss';
 import { basketBehavior, basketCounterGetter } from './cart/cartBehavior';
-
+import {cookies} from '../src/cookies/cookies';
 
 const body = $(document.body);
 
@@ -27,3 +27,4 @@ body.append(itSpaFooter);
 
 basketBehavior();
 basketCounterGetter();
+cookies();
