@@ -4,7 +4,7 @@ import { createFooter, createHeader, createMain, createBasket } from './common';
 import { navigation } from './navigation/navigation';
 import './it-spa.scss';
 import { basketBehavior, basketCounterGetter } from './cart/cartBehavior';
-import axios from 'axios';
+
 
 const body = $(document.body);
 

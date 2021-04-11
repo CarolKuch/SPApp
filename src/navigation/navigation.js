@@ -51,6 +51,7 @@ export const navigation = () => {
 
     nav.find('.nav-basket').on('click', () => {
         $(document).find('.basket-container').toggleClass('d-none');
+        $(document).find('.backdrop').toggleClass('d-none');
     })
 
     window.addEventListener('scroll', ()=>{

@@ -49,12 +49,22 @@ export let addToBasket = (e) => {
         let price = parseFloat($(addedItem).find('.price-of-item')[0].innerText.slice(6, 11)).toFixed(2);
         let image = $(addedItem).find('.item-img')[0].src;
         addItemToBasket(title, image, price);
+        $(document).find('.backdrop').on('click', () => {
+            $(document).find('.basket-container').toggleClass('d-none');
+            $(document).find('.backdrop').toggleClass('d-none');
+        });
     }
 
     addToBasketClicked(e);
 }
 
 export let basketBehavior = () => {
+
+    $(document).find('.backdrop').on('click', () => {
+        $(document).find('.basket-container').toggleClass('d-none');
+        $(document).find('.backdrop').toggleClass('d-none');
+    });
+    
     let removeBasketItemButtons = $(document).find('.btn-danger');
     let quantityInputs = $(document).find('.basket-quantity');
     
