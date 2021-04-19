@@ -2,11 +2,10 @@ import $, { map } from 'jquery';
 import axios from 'axios';
 import { minLenght } from '../registration/minLength';
 import { required } from '../registration/required';
-import { goHome } from '../home/home';
 
 export const login = () => {
     const fragment = $(document.createDocumentFragment());
-    $('#header-carousel').hide(); 
+
     const form = $(`
         <form name="logIn" novalidate autocomplete="off" class="text-center">
             <h2 class="text-center">Logowanie</h2>

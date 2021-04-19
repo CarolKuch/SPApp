@@ -6,8 +6,6 @@ import { passwordChecker } from './passwordChecker';
 
 export const registration = () => {
     const fragment = $(document.createDocumentFragment());
-    $('#header-carousel').hide(); 
-    $('.top-nav').removeClass(['bg-transparent']);
     const form = $(`        
         <form name="signUp" novalidate autocomplete="off" class="text-center">
         <h2 class="text-center">Rejestracja</h2>
